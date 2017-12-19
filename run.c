@@ -39,12 +39,12 @@ break;
       //BEST_FIT CODE
 
     p_meta temp=0;
-  size_t min=9999;
+  size_t m=9999;
 while(index){
 
-if(index ->free==0 &&index->size>=size&&index->size<min){
+if(index ->free==0 && index->size>=size && index->size<m){
 	temp=index;
-	min=index->size;
+	m=index->size;
 }
 index= index->next;   
  }
@@ -57,24 +57,11 @@ index= index->next;
     case WORST_FIT:
     {
       //WORST_FIT CODE
-	p_meta temp=0;
-	size_t ma=0;
-	while(index){
-		if(index->free == 0 && index ->size >=size && index->size >ma){
-			ma =index->size;
-			temp=index;
-		}
-			index =index ->next;
-	
-    }
-
-	result =temp;
-	}
-    break;
 
   }
   return result;
-}
+
+}}
 
 void *m_malloc(size_t size) {
 p_meta new=base;
@@ -113,15 +100,6 @@ else {
 }
 
 void m_free(void *ptr) {
-
-p_meta remo = base;
-p_meta prev = base;
-p_meta next = base;
-
-remo ->prev =ptr;
-
-remo ->next =last;
-remo ->free = 1;
 
 }
 
